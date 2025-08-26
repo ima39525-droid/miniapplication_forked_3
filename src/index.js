@@ -1,13 +1,13 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
+import { AdaptivityProvider, AppRoot, ConfigProvider } from '@vkontakte/vkui';
 
-import App from "./App";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+createRoot(document.getElementById('root')!).render(
+  <ConfigProvider>
+    <AdaptivityProvider>
+      <AppRoot>
+        <App initialPanel="main" />
+      </AppRoot>
+    </AdaptivityProvider>
+  </ConfigProvider>,
 );
